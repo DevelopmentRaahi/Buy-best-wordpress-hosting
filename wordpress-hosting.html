@@ -1173,15 +1173,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-document.querySelector('.year').innerHTML = new Date().getFullYear()
-        document.addEventListener('DOMContentLoaded', function () {
-            AOS.init({
-                disable: 'phone',
-                offset: 150,
-                duration: 700,
-            });
-            AOS.init({disable: 'phone'});
-        });
+      document.querySelector('.year').innerHTML = new Date().getFullYear()
+      document.addEventListener('DOMContentLoaded', function () {
+          AOS.init({
+        disable: function () {
+            return window.innerWidth < 500; 
+        },
+        offset: 150,
+        duration: 700,
+      });
+});
+
 
     </script>
 
